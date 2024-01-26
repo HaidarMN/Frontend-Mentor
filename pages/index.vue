@@ -3,8 +3,8 @@
     <h1 class="text-3xl font-bold text-center">Frontend Mentor Challenge</h1>
 
     <div class="relative">
-      <span @click="filter_open = !filter_open" class="cursor-pointer"
-        >Filter By</span
+      <button @click="filter_open = !filter_open" class="px-4 py-2 bg-gray-600 text-white font-medium rounded-lg hover:bg-gray-700"
+        >Filter By</button
       >
       <div
         v-show="filter_open"
@@ -24,9 +24,10 @@
               <input
                 type="radio"
                 name="order-by"
+                class="border border-gray-200 text-red-600 checked:border-red-600 checked:bg-red-600 hover:border-red-50 hover:bg-red-50 focus:border-red-600 focus:bg-red-600 focus:ring-0 active:border-red-600 active:bg-red-50"
                 :value="order_menu.value"
                 @click="selectOrder(order_menu.value)"
-                :checked="order_menu.value == 'recent'"
+                :checked="$route.query.order == order_menu.value || order_menu.value == 'recent'"
               />
               {{ order_menu.label }}
             </label>
@@ -46,6 +47,8 @@
                 type="checkbox"
                 :name="`difficulty${index}`"
                 :value="difficulty_menu.value"
+                :checked="selected_difficulty?.includes(difficulty_menu.value)"
+                class="h-5 w-5 rounded border border-gray-200 text-red-600 checked:border-red-600 checked:bg-red-600 hover:border-red-50 hover:bg-red-50 focus:border-red-600 focus:bg-red-600 focus:ring-0 active:border-red-600 active:bg-red-50"
                 @click="pushSelectedDifficulty(difficulty_menu.value, index)"
               />
               {{ difficulty_menu.label }}
@@ -72,10 +75,10 @@ const order_options = ref([
   { label: "Harder First", value: "harder" },
 ]);
 const difficulty_options = ref([
-  { label: "Newbie", value: 1 },
-  { label: "Junior", value: 2 },
-  { label: "Intermediate", value: 3 },
-  { label: "Advanced", value: 4 },
+  { label: "Newbie", value: "1" },
+  { label: "Junior", value: "2" },
+  { label: "Intermediate", value: "3" },
+  { label: "Advanced", value: "4" },
 ]);
 const selected_difficulty = ref([]);
 
@@ -106,7 +109,14 @@ const pushSelectedDifficulty = (val, index) => {
           : selected_difficulty.value.join(","),
     },
   });
+  console.log(selected_difficulty.value);
 };
+
+onMounted(() => {
+  if (useRoute().query.difficulty) {
+    selected_difficulty.value = useRoute().query.difficulty.split(',')
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>
