@@ -18,7 +18,7 @@
     </p>
 
     <div class="bg-rose-white flex flex-col gap-2 rounded-xl px-4 py-2">
-      <h3 class="font-bold text-[#cd5c5c]">Preparaion Time</h3>
+      <h2 class="font-bold text-[#cd5c5c]">Preparaion Time</h2>
       <ul class="list-outside list-disc pl-6 text-[#cd5c5c]">
         <li
           v-for="(preparation, index) in preparation_list"
@@ -27,6 +27,21 @@
         >
           <b class="text-wenge-brown font-bold">{{ preparation.bold }}</b
           >: {{ preparation.text }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <h2 class="font-[YoungSerif] text-xl tracking-wide text-[#8b4513]">
+        Ingredients
+      </h2>
+      <ul class="text-wenge-brown list-outside list-disc pl-6">
+        <li
+          v-for="(ingredient, index) in ingredients_list"
+          :key="index"
+          class="text-wenge-brown pb-2 pl-4 marker:font-bold marker:text-[#8b4513]"
+        >
+          {{ ingredient }}
         </li>
       </ul>
     </div>
@@ -83,6 +98,13 @@ const preparation_list = ref([
   { bold: "Total", text: "Approximately 10 minutes" },
   { bold: "Preparation", text: "5 minutes" },
   { bold: "Cooking", text: "5 minutes" },
+]);
+const ingredients_list = ref([
+  "2-3 large eggs",
+  "Salt, to taste",
+  "Pepper, to taste",
+  "1 tabblespoon of butter or oil",
+  "Optional fillings: cheese, diced vegetables, cooked meats, herbs",
 ]);
 const instruction_list = ref([
   {
