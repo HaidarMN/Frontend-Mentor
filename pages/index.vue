@@ -113,7 +113,14 @@ definePageMeta({
   layout: "home",
 });
 import { firestoreDB } from "~/server/lib/firebase";
-import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  getDocs,
+  where,
+} from "firebase/firestore";
 
 // Variabel
 const filter_open = ref(false);
@@ -129,40 +136,23 @@ const difficulty_options = ref([
   { label: "Advanced", value: "4" },
 ]);
 const selected_difficulty = ref([]);
-const query_data = query(collection(firestoreDB, "challanges"));
+const query_data = computed(() => {
+  const base = collection(firestoreDB, "challanges");
+  const order = useRoute().query.order
+    ? orderBy("level", useRoute().query.order === "easier" ? "asc" : "desc")
+    : orderBy("date", "desc");
+  const difficulty = useRoute().query.difficulty
+    ? useRoute().query?.difficulty.split(",").map(Number)
+    : [1, 2, 3, 4];
+
+  return query(base, order, where("level", "in", difficulty));
+});
 const data_response = ref([]);
 
 // Function
-const selectOrder = (val) => {
-  navigateTo({
-    path: "/",
-    query: {
-      order: val == "recent" ? undefined : val,
-      difficulty: useRoute().query?.difficulty,
-    },
-  });
-};
-const pushSelectedDifficulty = (val, index) => {
-  var index = selected_difficulty.value.indexOf(val);
-  if (index == -1) {
-    selected_difficulty.value.push(val);
-  } else {
-    selected_difficulty.value.splice(index, 1);
-  }
-  navigateTo({
-    path: "/",
-    query: {
-      order: useRoute().query?.order,
-      difficulty:
-        selected_difficulty.value.length == 0
-          ? undefined
-          : selected_difficulty.value.join(","),
-    },
-  });
-  console.log(selected_difficulty.value);
-};
-const getData = onSnapshot(query_data, (querySnapshot) => {
+const getData = async () => {
   data_response.value = [];
+  var querySnapshot = await getDocs(query_data.value);
   querySnapshot.forEach((doc) => {
     var response = {
       id: doc.id,
@@ -173,10 +163,45 @@ const getData = onSnapshot(query_data, (querySnapshot) => {
     };
     data_response.value.push(response);
   });
-});
+};
+const selectOrder = async (val) => {
+  await navigateTo({
+    path: "/",
+    query: {
+      order: val == "recent" ? undefined : val,
+      difficulty: useRoute().query?.difficulty,
+    },
+  });
+  await getData();
+};
+const pushSelectedDifficulty = async (val, index) => {
+  var index = selected_difficulty.value.indexOf(val);
+  if (index == -1) {
+    selected_difficulty.value.push(val);
+  } else {
+    selected_difficulty.value.splice(index, 1);
+  }
+  await navigateTo({
+    path: "/",
+    query: {
+      order: useRoute().query?.order,
+      difficulty:
+        selected_difficulty.value.length == 0
+          ? undefined
+          : selected_difficulty.value.join(","),
+    },
+  });
+  await getData();
+};
 const getLevelName = (val) => {
   if (val === 1) {
     return "NEWBIE";
+  } else if (val === 2) {
+    return "JUNIOR";
+  } else if (val === 3) {
+    return "INTERMEDIATE";
+  } else {
+    return "ADVANCED";
   }
 };
 
@@ -184,6 +209,7 @@ onMounted(() => {
   if (useRoute().query.difficulty) {
     selected_difficulty.value = useRoute().query.difficulty.split(",");
   }
+  getData();
 });
 </script>
 
