@@ -20,6 +20,10 @@ export default {
         eggshell: "hsl(30, 54%, 90%)",
         "wenge-brown": "hsl(30, 10%, 34%)",
         "dark-charcoal": "hsl(24, 5%, 18%)",
+        grey: "hsl(0, 0%, 20%)",
+        "dark-grey": "hsl(0, 0%, 12%)",
+        "off-black": "hsl(0, 0%, 8%)",
+        green: "hsl(75, 94%, 57%)",
       },
       fontFamily: {
         Outfit: ["Outfit", "serif"],
