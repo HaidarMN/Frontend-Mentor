@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     baseURL: "/",
     // buildAssetsDir: "assets",
   },
+  modules: ["@pinia/nuxt"],
   css: ["~/assets/styles/main.css"],
   postcss: {
     plugins: {

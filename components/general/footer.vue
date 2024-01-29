@@ -1,5 +1,5 @@
 <template>
-  <footer class="text-sm text-center p-4" :class="`bg-${color}`">
+  <footer class="p-4 text-center text-sm" :class="color">
     Challenge by
     <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
       >Frontend Mentor</a

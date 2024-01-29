@@ -1,47 +1,50 @@
 <template>
-  <div class="bg-gray-50 min-h-screen p-10 pt-20 flex flex-col gap-4">
-    <h1 class="text-3xl font-bold text-center">Frontend Mentor Challenge</h1>
+  <div
+    class="flex min-h-[calc(100vh-3rem)] flex-col gap-4 bg-gray-50 p-10 pt-20"
+  >
+    <h1 class="text-center text-3xl font-bold">Frontend Mentor Challenge</h1>
 
     <div class="relative">
-      <button @click="filter_open = !filter_open" class="px-4 py-2 bg-gray-600 text-white font-medium rounded-lg hover:bg-gray-700"
-        >Filter By</button
+      <button
+        @click="filter_open = !filter_open"
+        class="rounded-lg bg-gray-600 px-4 py-2 font-medium text-white hover:bg-gray-700"
       >
+        Filter By
+      </button>
       <div
         v-show="filter_open"
-        class="absolute bg-white rounded-lg mt-2 z-20 shadow-md flex flex-col w-60"
+        class="absolute z-20 mt-2 flex w-60 flex-col rounded-lg bg-white shadow-md"
       >
         <div class="flex flex-col">
           <span
-            class="px-4 py-2 border-b border-slate-300 bg-gray-100 text-gray-400 font-semibold text-sm"
+            class="border-b border-slate-300 bg-gray-100 px-4 py-2 text-sm font-semibold tracking-widest text-gray-400"
             >ORDER</span
           >
           <div class="flex flex-col">
-            <label
+            <span
               v-for="(order_menu, index) in order_options"
               :key="index"
-              class="px-4 py-2 border-b border-slate-300 flex flex-row items-center gap-2 cursor-pointer"
+              class="flex cursor-pointer flex-row items-center gap-2 border-b border-l-4 border-slate-300 border-l-transparent px-4 py-2"
+              :class="{
+                '!border-l-gray-600': $route.query.order
+                  ? $route.query.order === order_menu.value
+                  : order_menu.value === 'recent',
+              }"
+              @click="selectOrder(order_menu.value)"
             >
-              <input
-                type="radio"
-                name="order-by"
-                class="border border-gray-200 text-red-600 checked:border-red-600 checked:bg-red-600 hover:border-red-50 hover:bg-red-50 focus:border-red-600 focus:bg-red-600 focus:ring-0 active:border-red-600 active:bg-red-50"
-                :value="order_menu.value"
-                @click="selectOrder(order_menu.value)"
-                :checked="$route.query.order == order_menu.value || order_menu.value == 'recent'"
-              />
               {{ order_menu.label }}
-            </label>
+            </span>
           </div>
 
           <span
-            class="px-4 py-2 border-b border-slate-300 bg-gray-100 text-gray-400 font-semibold text-sm"
+            class="border-b border-slate-300 bg-gray-100 px-4 py-2 text-sm font-semibold tracking-widest text-gray-400"
             >DIFFICULTY</span
           >
           <div class="flex flex-col">
             <label
               v-for="(difficulty_menu, index) in difficulty_options"
               :key="index"
-              class="px-4 py-2 border-b border-slate-300 flex flex-row items-center gap-2 cursor-pointer"
+              class="flex cursor-pointer flex-row items-center gap-2 border-b border-slate-300 px-4 py-2"
             >
               <input
                 type="checkbox"
@@ -57,16 +60,61 @@
         </div>
       </div>
     </div>
+
+    <div class="grid grid-cols-4 gap-4">
+      <NuxtLink
+        v-for="challange in data_response"
+        :key="challange.id"
+        :to="challange.path"
+        target="_blank"
+        class="flex flex-col rounded-lg bg-white p-4 shadow-md"
+      >
+        <div class="flex flex-col gap-2">
+          <span class="text-xl font-medium">
+            {{ challange.name }}
+          </span>
+
+          <div class="flex w-full flex-row items-center justify-between">
+            <div class="flex flex-row items-center gap-2">
+              <span
+                v-for="(skill, index) in challange.skills"
+                :key="skill"
+                class="font-bold"
+                :class="{
+                  'text-primary-blue': skill === 'HTML',
+                  'text-primary-purple': skill === 'CSS',
+                }"
+                >{{ skill }}</span
+              >
+            </div>
+
+            <span
+              class="rounded-lg border px-2.5 py-0.5 text-sm font-semibold"
+              :class="{
+                'text-primary-blue border-primary-blue': challange.level === 1,
+              }"
+              >{{ getLevelName(challange.level) }}</span
+            >
+          </div>
+        </div>
+      </NuxtLink>
+    </div>
   </div>
 
   <div
     v-if="filter_open"
-    class="h-full w-screen absolute inset-0 z-10"
+    class="absolute inset-0 z-10 h-full w-screen"
     @click="filter_open = !filter_open"
   ></div>
 </template>
 
 <script setup>
+definePageMeta({
+  layout: "home",
+});
+import { firestoreDB } from "~/server/lib/firebase";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
+
 // Variabel
 const filter_open = ref(false);
 const order_options = ref([
@@ -81,6 +129,8 @@ const difficulty_options = ref([
   { label: "Advanced", value: "4" },
 ]);
 const selected_difficulty = ref([]);
+const query_data = query(collection(firestoreDB, "challanges"));
+const data_response = ref([]);
 
 // Function
 const selectOrder = (val) => {
@@ -111,12 +161,30 @@ const pushSelectedDifficulty = (val, index) => {
   });
   console.log(selected_difficulty.value);
 };
+const getData = onSnapshot(query_data, (querySnapshot) => {
+  data_response.value = [];
+  querySnapshot.forEach((doc) => {
+    var response = {
+      id: doc.id,
+      name: doc.data().name,
+      path: doc.data().path,
+      skills: doc.data().skills,
+      level: doc.data().level,
+    };
+    data_response.value.push(response);
+  });
+});
+const getLevelName = (val) => {
+  if (val === 1) {
+    return "NEWBIE";
+  }
+};
 
 onMounted(() => {
   if (useRoute().query.difficulty) {
-    selected_difficulty.value = useRoute().query.difficulty.split(',')
+    selected_difficulty.value = useRoute().query.difficulty.split(",");
   }
-})
+});
 </script>
 
 <style lang="scss" scoped></style>
