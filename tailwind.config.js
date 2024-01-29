@@ -16,6 +16,13 @@ export default {
         "light-gray": "hsl(212, 45%, 89%)",
         "grayish-blue": "hsl(220, 15%, 55%)",
         "dark-blue": "hsl(218, 44%, 22%)",
+        "rose-white": "hsl(330, 100%, 98%)",
+        eggshell: "hsl(30, 54%, 90%)",
+        "wenge-brown": "hsl(30, 10%, 34%)",
+        "dark-charcoal": "hsl(24, 5%, 18%)",
+      },
+      fontFamily: {
+        Outfit: ["Outfit", "serif"],
       },
     },
   },
