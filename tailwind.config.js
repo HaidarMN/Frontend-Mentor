@@ -24,6 +24,8 @@ export default {
         "dark-grey": "hsl(0, 0%, 12%)",
         "off-black": "hsl(0, 0%, 8%)",
         green: "hsl(75, 94%, 57%)",
+        yellow: "hsl(47, 88%, 63%)",
+        black: "hsl(0, 0%, 7%)"
       },
       fontFamily: {
         Outfit: ["Outfit", "serif"],

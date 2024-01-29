@@ -1,5 +1,5 @@
 <template>
-  <footer class="p-4 text-center text-sm" :class="color">
+  <footer class="p-4 text-center text-xs md:text-sm" :class="color">
     Challenge by
     <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
       >Frontend Mentor</a
