@@ -27,7 +27,7 @@
 
     <div class="flex flex-row items-center gap-2">
       <img
-        src="~/assets/images/blog-preview/image-avatar.webp"
+        src="/images/blog-preview/image-avatar.webp"
         alt="avatar"
         class="w-8 rounded-full"
       />
