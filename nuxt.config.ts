@@ -7,6 +7,7 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/x-icon", href: "/h.svg" }],
       htmlAttrs: {
         lang: "en",
+        class: "scroll-smooth",
       },
       meta: [
         {

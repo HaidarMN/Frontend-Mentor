@@ -1,6 +1,6 @@
 <template>
   <div
-    class="my-8 flex w-[32rem] flex-col gap-4 rounded-xl bg-white p-6 font-[WorkSans] shadow-md"
+    class="my-8 flex w-full max-w-xs flex-col gap-4 rounded-xl bg-white p-6 font-[WorkSans] shadow-md md:max-w-2xl"
   >
     <header class="flex flex-row items-center gap-4">
       <img src="/images/faq-accordion/icon-star.svg" alt="Star" />
@@ -40,6 +40,10 @@
 
 <script setup>
 import { useFooterColor } from "~/stores/footerColor";
+
+definePageMeta({
+  layout: "faq",
+});
 
 // Varibel
 const footer_color_store = useFooterColor();

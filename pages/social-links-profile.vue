@@ -1,6 +1,6 @@
 <template>
   <div
-    class="my-8 flex w-72 flex-col items-center gap-6 rounded-xl bg-dark-grey p-4 font-[Inter] md:w-96"
+    class="my-8 flex w-72 flex-col items-center gap-6 rounded-xl bg-dark-grey p-4 font-[Inter] md:my-0 md:w-96"
   >
     <img
       src="/images/social-link/avatar-jessica.jpeg"

@@ -1,7 +1,6 @@
 <template>
-  <div
-    class="flex min-h-[calc(100vh-3rem)] flex-col gap-4 bg-gray-50 p-10 pt-20"
-  >
+  <Body class="bg-gray-50" />
+  <div class="flex flex-col gap-4 bg-cover p-10 pt-20">
     <h1 class="text-center text-3xl font-bold">Frontend Mentor Challenge</h1>
 
     <div class="relative">
