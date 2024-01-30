@@ -1,6 +1,6 @@
 <template>
   <Body class="bg-gray-50" />
-  <div class="flex flex-col gap-4 bg-cover p-10 pt-20">
+  <div class="flex flex-col gap-6 bg-cover p-6 pt-20 md:gap-4 md:p-10">
     <h1 class="text-center text-3xl font-bold">Frontend Mentor Challenge</h1>
 
     <div class="relative">
@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
       <NuxtLink
         v-for="challange in data_response"
         :key="challange.id"
