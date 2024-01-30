@@ -3,7 +3,7 @@
     class="my-8 flex w-[32rem] flex-col gap-4 rounded-xl bg-white p-6 font-[WorkSans] shadow-md"
   >
     <header class="flex flex-row items-center gap-4">
-      <img src="~/assets/images/faq-accordion/icon-star.svg" alt="Star" />
+      <img src="/images/faq-accordion/icon-star.svg" alt="Star" />
       <h1 class="text-dark-purple text-4xl font-bold">FAQs</h1>
     </header>
 
