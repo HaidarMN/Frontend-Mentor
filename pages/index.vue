@@ -83,6 +83,7 @@
                 :class="{
                   'text-primary-blue': skill === 'HTML',
                   'text-primary-purple': skill === 'CSS',
+                  'text-primary-pink': skill === 'JS',
                 }"
                 >{{ skill }}</span
               >
@@ -91,7 +92,7 @@
             <span
               class="rounded-lg border px-2.5 py-0.5 text-sm font-semibold"
               :class="{
-                'text-primary-blue border-primary-blue': challange.level === 1,
+                'border-primary-blue text-primary-blue': challange.level === 1,
               }"
               >{{ getLevelName(challange.level) }}</span
             >

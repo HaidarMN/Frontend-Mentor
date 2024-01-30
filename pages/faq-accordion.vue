@@ -19,7 +19,7 @@
             {{ faq.ask }}
           </h2>
           <img
-            :src="`/_nuxt/assets/images/faq-accordion/icon-${selected_faq == faq.ask ? 'minus' : 'plus'}.svg`"
+            :src="`/images/faq-accordion/icon-${selected_faq == faq.ask ? 'minus' : 'plus'}.svg`"
             :alt="`${selected_faq == faq.ask ? 'minus' : 'plus'} icon`"
           />
         </div>

@@ -3,20 +3,20 @@
     class="group my-8 flex w-72 cursor-pointer flex-col gap-4 rounded-xl border border-black bg-white p-4 font-[Figtree]"
   >
     <img
-      src="~/assets/images/blog-preview/illustration-article.svg"
-      alt="cove img"
+      src="/images/blog-preview/illustration-article.svg"
+      alt="cover img"
       class="rounded-xl"
     />
 
     <div class="flex flex-col gap-2">
       <span
-        class="bg-yellow w-fit rounded-lg px-2.5 py-0.5 text-sm font-semibold"
+        class="w-fit rounded-lg bg-yellow px-2.5 py-0.5 text-sm font-semibold"
         >Learning</span
       >
       <span class="text-xs font-bold">Published 21 Dec 2023</span>
     </div>
 
-    <h1 class="group-hover:text-yellow text-xl font-extrabold">
+    <h1 class="text-xl font-extrabold group-hover:text-yellow">
       HTML & CSS foundations
     </h1>
 

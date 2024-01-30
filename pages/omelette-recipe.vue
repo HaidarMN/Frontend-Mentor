@@ -3,29 +3,29 @@
     class="flex w-full max-w-lg flex-col gap-4 rounded-b-xl bg-white p-4 font-[Outfit] md:my-8 md:rounded-xl"
   >
     <img
-      src="~/assets/images/omelette-recipe/image-omelette.jpeg"
+      src="/images/omelette-recipe/image-omelette.jpeg"
       alt="Omelette"
       class="rounded-xl"
     />
 
-    <h1 class="text-dark-charcoal font-[YoungSerif] text-2xl tracking-wide">
+    <h1 class="font-[YoungSerif] text-2xl tracking-wide text-dark-charcoal">
       Simple Omelette Recipe
     </h1>
-    <p class="text-dark-charcoal text-sm">
+    <p class="text-sm text-dark-charcoal">
       An easy and quick dish, perfect for any meal. This classic omelette
       combines beaten eggs cooked to perfection, optionally filled with your
       choice of cheese, vegetables, or meats.
     </p>
 
-    <div class="bg-rose-white flex flex-col gap-2 rounded-xl px-4 py-2">
+    <div class="flex flex-col gap-2 rounded-xl bg-rose-white px-4 py-2">
       <h2 class="font-bold text-[#cd5c5c]">Preparaion Time</h2>
       <ul class="list-outside list-disc pl-6 text-[#cd5c5c]">
         <li
           v-for="(preparation, index) in preparation_list"
           :key="index"
-          class="text-dark-charcoal pb-2 pl-2 marker:text-[#cd5c5c]"
+          class="pb-2 pl-2 text-dark-charcoal marker:text-[#cd5c5c]"
         >
-          <b class="text-wenge-brown font-bold">{{ preparation.bold }}</b
+          <b class="font-bold text-wenge-brown">{{ preparation.bold }}</b
           >: {{ preparation.text }}
         </li>
       </ul>
@@ -35,11 +35,11 @@
       <h2 class="font-[YoungSerif] text-xl tracking-wide text-[#8b4513]">
         Ingredients
       </h2>
-      <ul class="text-wenge-brown list-outside list-disc pl-6">
+      <ul class="list-outside list-disc pl-6 text-wenge-brown">
         <li
           v-for="(ingredient, index) in ingredients_list"
           :key="index"
-          class="text-wenge-brown pb-2 pl-4 marker:font-bold marker:text-[#8b4513]"
+          class="pb-2 pl-4 text-wenge-brown marker:font-bold marker:text-[#8b4513]"
         >
           {{ ingredient }}
         </li>
@@ -50,11 +50,11 @@
       <h2 class="font-[YoungSerif] text-xl tracking-wide text-[#8b4513]">
         Instructions
       </h2>
-      <ol class="text-wenge-brown list-outside list-decimal pl-6">
+      <ol class="list-outside list-decimal pl-6 text-wenge-brown">
         <li
           v-for="(list, index) in instruction_list"
           :key="index"
-          class="text-wenge-brown pb-2 pl-4 marker:font-bold marker:text-[#8b4513]"
+          class="pb-2 pl-4 text-wenge-brown marker:font-bold marker:text-[#8b4513]"
         >
           <b>{{ list.bold }}</b
           >: {{ list.text }}
@@ -66,7 +66,7 @@
       <h2 class="font-[YoungSerif] text-xl tracking-wide text-[#8b4513]">
         Nutrition
       </h2>
-      <p class="text-dark-charcoal text-sm">
+      <p class="text-sm text-dark-charcoal">
         The table below shows nutritional values per serving without the
         additional fillings.
       </p>
@@ -76,9 +76,9 @@
           <tr
             v-for="(table_content, index) in table_content_list"
             :key="index"
-            class="border-light-gray border-b last:border-none"
+            class="border-b border-light-gray last:border-none"
           >
-            <td class="text-dark-charcoal p-4">{{ table_content.label }}</td>
+            <td class="p-4 text-dark-charcoal">{{ table_content.label }}</td>
             <td class="p-4 font-semibold text-[#8b4513]">
               {{ table_content.value }}
             </td>

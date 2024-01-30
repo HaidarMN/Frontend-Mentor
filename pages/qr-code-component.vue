@@ -3,14 +3,14 @@
     class="flex w-72 flex-col items-center gap-4 rounded-xl bg-white p-4 pb-6 font-sans"
   >
     <img
-      src="~/assets/images/qr-code/image-qr-code.png"
+      src="/images/qr-code/image-qr-code.png"
       alt="QR Code"
       class="w-full rounded-xl"
     />
-    <h1 class="text-dark-blue text-center text-xl font-bold">
+    <h1 class="text-center text-xl font-bold text-dark-blue">
       Improve your front-end skills by building projects
     </h1>
-    <p class="text-grayish-blue text-center text-sm">
+    <p class="text-center text-sm text-grayish-blue">
       Scan the QR code to visit Frontend Mentor and take your coding skills to
       the next level
     </p>
