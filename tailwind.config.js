@@ -23,6 +23,8 @@ export default {
         "dark-purple": "hsl(292, 42%, 14%)",
         eggshell: "hsl(30, 54%, 90%)",
         gray: "hsl(0, 0%, 20%)",
+        "gray-600": "#4b5563",
+        "gray-700": "#374151",
         "grayish-blue": "hsl(220, 15%, 55%)",
         "grayish-purple": "hsl(292, 16%, 49%)",
         green: "hsl(75, 94%, 57%)",

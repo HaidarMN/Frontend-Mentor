@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: "Frontend Mentor Challange | Haidar Muhammad Naufal",
+      title: "HaidarMN | Frontend Mentor",
       link: [{ rel: "icon", type: "image/x-icon", href: "/h.svg" }],
       htmlAttrs: {
         lang: "en",
