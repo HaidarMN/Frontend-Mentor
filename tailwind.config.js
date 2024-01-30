@@ -25,7 +25,10 @@ export default {
         "off-black": "hsl(0, 0%, 8%)",
         green: "hsl(75, 94%, 57%)",
         yellow: "hsl(47, 88%, 63%)",
-        black: "hsl(0, 0%, 7%)"
+        black: "hsl(0, 0%, 7%)",
+        "light-pink": "hsl(275, 100%, 97%)",
+        "grayish-purple": "hsl(292, 16%, 49%)",
+        "dark-purple": "hsl(292, 42%, 14%)",
       },
       fontFamily: {
         Outfit: ["Outfit", "serif"],
