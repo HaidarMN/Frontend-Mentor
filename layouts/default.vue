@@ -13,6 +13,17 @@
 <script setup>
 import { useFooterColor } from "~/stores/footerColor";
 
+useHead({
+  link: [
+    { rel: "preconnect", href: "https://fonts.googleapis.com" },
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossorigin: "use-credentials",
+    },
+  ],
+});
+
 // Variabel
 const footer_color_store = useFooterColor();
 </script>

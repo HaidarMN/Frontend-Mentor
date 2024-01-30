@@ -20,7 +20,7 @@
       HTML & CSS foundations
     </h1>
 
-    <p class="text-xs text-grey">
+    <p class="text-gray text-xs">
       These languages are the backbone of every website, defining structure,
       content, and presentation.
     </p>
