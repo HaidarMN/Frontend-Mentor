@@ -1,5 +1,5 @@
 <template>
-  <Body class="bg-gray-50" />
+  <Body class="bg-gray-600/5" />
   <div class="flex flex-col gap-6 bg-cover p-6 pt-20 md:gap-4 md:p-10">
     <h1 class="text-center text-3xl font-bold">Frontend Mentor Challenge</h1>
 
@@ -16,7 +16,7 @@
       >
         <div class="flex flex-col">
           <span
-            class="border-b border-slate-300 bg-gray-100 px-4 py-2 text-sm font-semibold tracking-widest text-gray-400"
+            class="bg-gray-100 text-gray-400 border-b border-slate-300 px-4 py-2 text-sm font-semibold tracking-widest"
             >ORDER</span
           >
           <div class="flex flex-col">
@@ -36,7 +36,7 @@
           </div>
 
           <span
-            class="border-b border-slate-300 bg-gray-100 px-4 py-2 text-sm font-semibold tracking-widest text-gray-400"
+            class="bg-gray-100 text-gray-400 border-b border-slate-300 px-4 py-2 text-sm font-semibold tracking-widest"
             >DIFFICULTY</span
           >
           <div class="flex flex-col">
@@ -50,7 +50,7 @@
                 :name="`difficulty${index}`"
                 :value="difficulty_menu.value"
                 :checked="selected_difficulty?.includes(difficulty_menu.value)"
-                class="h-5 w-5 rounded border border-gray-200 text-red-600 checked:border-red-600 checked:bg-red-600 hover:border-red-50 hover:bg-red-50 focus:border-red-600 focus:bg-red-600 focus:ring-0 active:border-red-600 active:bg-red-50"
+                class="border-gray-200 h-5 w-5 rounded border text-red-600 checked:border-red-600 checked:bg-red-600 hover:border-red-50 hover:bg-red-50 focus:border-red-600 focus:bg-red-600 focus:ring-0 active:border-red-600 active:bg-red-50"
                 @click="pushSelectedDifficulty(difficulty_menu.value, index)"
               />
               {{ difficulty_menu.label }}
