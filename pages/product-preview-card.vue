@@ -9,29 +9,29 @@
 
     <div class="flex w-72 flex-col gap-4 p-4 md:p-8">
       <span
-        class="font-monsterrat text-dark-grayish-blue text-xs tracking-[0.5rem]"
+        class="font-monsterrat text-xs tracking-[0.5rem] text-dark-grayish-blue"
         >PERFUME</span
       >
       <h1
-        class="text-very-dark-blue font-fraunces text-3xl font-bold md:text-4xl"
+        class="text-very-dark-blue-1 font-fraunces text-3xl font-bold md:text-4xl"
       >
         Grabielle Essence Eau De Parfum
       </h1>
-      <p class="text-dark-grayish-blue text-sm md:text-base">
+      <p class="text-sm text-dark-grayish-blue md:text-base">
         A floral, solar, and voluptuous interpretation composed by Oliver Polge,
         Perfumer-Creator for the House of CHANEL.
       </p>
 
       <div class="flex flex-row items-center gap-4">
         <span
-          class="font-fraunces text-dark-cyan text-2xl font-bold md:text-3xl"
+          class="font-fraunces text-2xl font-bold text-dark-cyan md:text-3xl"
           >$149.99</span
         >
         <span class="text-xs text-grayish-blue"><del>$169.99</del></span>
       </div>
 
       <button
-        class="bg-dark-cyan flex w-full flex-row items-center justify-center gap-4 rounded-lg px-4 py-2 text-white hover:bg-[hsl(158_36%_25%)]"
+        class="flex w-full flex-row items-center justify-center gap-4 rounded-lg bg-dark-cyan px-4 py-2 text-white hover:bg-[hsl(158_36%_25%)]"
       >
         <img src="/images/product-preview-card/icon-cart.svg" alt="icon cart" />
         Add to Cart

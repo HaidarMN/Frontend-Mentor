@@ -1,6 +1,6 @@
 <template>
   <div
-    class="font-overpass bg-dark-blue2 flex w-72 flex-col gap-4 rounded-3xl p-6 md:w-96"
+    class="font-overpass bg-dark-blue-2 flex w-72 flex-col gap-4 rounded-3xl p-6 md:w-96"
     :class="is_submitted ? 'items-center' : 'items-start'"
   >
     <img
@@ -21,7 +21,7 @@
     </h1>
 
     <p
-      class="text-light-gray2 text-sm"
+      class="text-light-gray-2 text-sm"
       :class="is_submitted ? 'text-center' : 'text-start'"
     >
       {{
@@ -78,7 +78,7 @@ const is_submitted = ref(false);
 
 // Function
 onMounted(() => {
-  footer_color_store.changeFooterColor("bg-very-dark-blue2");
+  footer_color_store.changeFooterColor("bg-very-dark-blue-2");
 });
 </script>
 

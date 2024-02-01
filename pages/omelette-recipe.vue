@@ -76,7 +76,7 @@
           <tr
             v-for="(table_content, index) in table_content_list"
             :key="index"
-            class="border-b border-light-gray last:border-none"
+            class="border-light-gray-1 border-b last:border-none"
           >
             <td class="p-4 text-dark-charcoal">{{ table_content.label }}</td>
             <td class="p-4 font-semibold text-[#8b4513]">

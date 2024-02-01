@@ -7,7 +7,7 @@
       alt="QR Code"
       class="w-full rounded-xl"
     />
-    <h1 class="text-center text-xl font-bold text-dark-blue">
+    <h1 class="text-dark-blue-1 text-center text-xl font-bold">
       Improve your front-end skills by building projects
     </h1>
     <p class="text-center text-sm text-grayish-blue">
@@ -25,7 +25,7 @@ const footer_color_store = useFooterColor();
 
 // Function
 onMounted(() => {
-  footer_color_store.changeFooterColor("bg-light-gray");
+  footer_color_store.changeFooterColor("bg-light-gray-1");
 });
 </script>
 
