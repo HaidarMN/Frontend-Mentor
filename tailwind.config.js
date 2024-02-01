@@ -13,6 +13,7 @@ export default {
       colors: {
         black: "hsl(0, 0%, 7%)",
         cream: "hsl(30, 38%, 92%)",
+        cyan: "hsl(178, 100%, 50%)",
         "cobalt-blue": "hsl(234, 85%, 45%)",
         "dark-blue": {
           1: "hsl(218, 44%, 22%)",
@@ -49,10 +50,14 @@ export default {
         "primary-pink": "rgb(207, 99, 144)",
         "primary-purple": "rgb(62, 84, 163)",
         "rose-white": "hsl(330, 100%, 98%)",
+        "soft-blue": "hsl(215, 51%, 70%)",
         "violet-blue": "hsla(256, 72%, 46%, 1)",
         "very-dark-blue": {
           1: "hsl(212, 21%, 14%)",
           2: "hsl(216, 12%, 8%)",
+          3: "hsl(217, 54%, 11%)",
+          4: "hsl(216, 50%, 16%)",
+          5: "hsl(215, 32%, 27%)",
         },
         "wenge-brown": "hsl(30, 10%, 34%)",
         yellow: "hsl(47, 88%, 63%)",
