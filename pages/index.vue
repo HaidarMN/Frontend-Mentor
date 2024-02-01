@@ -66,7 +66,7 @@
         :key="challange.id"
         :to="challange.path"
         target="_blank"
-        class="flex flex-col rounded-lg bg-white p-4 shadow-md"
+        class="flex flex-col rounded-lg bg-white p-4 shadow-md transition-all hover:-translate-y-2"
       >
         <div class="flex flex-col gap-2">
           <span class="text-xl font-medium">
